@@ -10,13 +10,19 @@ import { ArticleComponent } from './article/article.component';
 import { ArticleService } from './article/article.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticleComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    ComingSoonComponent
   ],
   imports: [
     BrowserModule,
