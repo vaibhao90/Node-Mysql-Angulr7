@@ -1,0 +1,67 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Android Tutorial API Document",
+        "description": "Android Tutorial API Document"
+    },
+    "host": "localhost:3000",
+    "basePath": "/api/v1",
+    "tags": [
+        {
+            "name": "Articles",
+            "description": "API for Articles in the system"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/articles": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get all users in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Article": {
+            "required": [
+                "title",
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "number",
+                    "uniqueItems": true
+                },
+                "title": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                }
+            }
+        },
+        "Articles": {
+            "type": "array",
+            "$ref": "#/definitions/Article"
+        }
+    }
+}
