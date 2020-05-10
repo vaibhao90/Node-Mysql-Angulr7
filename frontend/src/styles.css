@@ -9,6 +9,7 @@ html {
     position: relative;
     font-family: 'Source Sans Pro';
     font-weight: 300;
+    overflow: hidden;
   }
   
   h1,
@@ -20,4 +21,4 @@ html {
     font-family: 'Merriweather';
     font-weight: 700;
   }
- 
+  
