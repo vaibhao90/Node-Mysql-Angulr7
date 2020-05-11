@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {DropdownModule} from 'primeng/dropdown';
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import {TabViewModule} from 'primeng/tabview';
 
 
 import { AppComponent } from './app.component';
@@ -43,7 +44,8 @@ import { WizardShowComponent } from './wizard-show/wizard-show.component';
     ReactiveFormsModule,
     FormsModule,
     DropdownModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    TabViewModule
   ],
   providers: [
     ArticleService

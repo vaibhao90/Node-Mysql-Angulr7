@@ -1,4 +1,4 @@
-<h2 class="bd-title" id="content">Radio Button</h2>
+<h2 class="bd-title" id="content" style="font-size: 1.6rem;">Radio Button</h2>
 <p class="bd-lead">Provide contextual feedback messages for typical user actions with the handful of available and
   flexible alert messages.</p>
 <h3 id="examples">
@@ -8,12 +8,12 @@
   <!-- <span style="margin-left:50px">Brand: {{selectedPrimitive|json}}</span> -->
 
   <div class="bd-content-title">
-    <h3>
+    <h3 style="font-size: 1.4rem;">
       {{selectedPrimitive.label}}
       <span style="float: right;">
-        <p-autoComplete [(ngModel)]="selectedPrimitive" [suggestions]="filteredPrimitiveOptions"
+        <p-autoComplete [(ngModel)]="selectedPrimitive1" [suggestions]="filteredPrimitiveOptions"
           (completeMethod)="filterOptions($event)" [size]="30" [minLength]="1" placeholder="Hint: type 'v' or 'f'"
-          [dropdown]="true" field="label">
+          (onSelect)="selectPrimitive()" [dropdown]="true" field="label">
         </p-autoComplete>
       </span>
     </h3>
@@ -24,97 +24,34 @@
   the eight <strong>required</strong> contextual classes (e.g., <code class="highlighter-rouge">.alert-success</code>).
   For inline dismissal, use the <a href="#dismissing">alerts jQuery plugin</a>.</p>
 <div class="row">
-
-  <div class="col-md-6">
-    <div class="bd-clipboard"><button type="button" class="btn-clipboard" title=""
-        data-original-title="Copy to clipboard">Copy</button></div>
-    <figure class="highlight">
-
-      <pre style="overflow-y: scroll;
-     max-height: 420px;">
-        {{xmlString}}
-     </pre>
-      <!--     <code class="language-html" lang="xml">
-            <RadioGroup
-            android:id="@+id/daily_weekly_button_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-    
-    
-            <RadioButton
-                android:id="@+id/radio0"
-                android:layout_width="@dimen/_80sdp"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:background="@drawable/radio_flat_selector"
-                android:button="@android:color/transparent"
-                android:checked="true"
-                android:paddingLeft="@dimen/_16sdp"
-                android:paddingTop="@dimen/_3sdp"
-                android:paddingRight="@dimen/_16sdp"
-                android:paddingBottom="@dimen/_3sdp"
-                android:text="Daily"
-                android:textColor="@color/radio_flat_text_selector" />
-    
-            <RadioButton
-                android:id="@+id/radio1"
-                android:gravity="center"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/radio_flat_selector"
-                android:button="@android:color/transparent"
-                android:paddingLeft="@dimen/_16sdp"
-                android:paddingTop="@dimen/_3sdp"
-                android:paddingRight="@dimen/_16sdp"
-                android:paddingBottom="@dimen/_3sdp"
-                android:text="Weekly"
-                android:textColor="@color/radio_flat_text_selector" />
-    
-            </RadioGroup>
-    </code>
-  </pre>-->
-    </figure>
+  <div class="col-md-8">
+    <p-tabView>
+      <p-tabPanel header="XML" leftIcon="pi pi-calendar">
+        <div class="bd-clipboard"><button type="button" class="btn-clipboard" title=""
+            data-original-title="Copy to clipboard">Copy</button></div>
+        <figure class="highlight">
+          <pre>
+                {{xmlString}}
+             </pre>
+        </figure>
+      </p-tabPanel>
+      <p-tabPanel header="Code" leftIcon="pi pi-inbox">
+        <div class="bd-clipboard"><button type="button" class="btn-clipboard" title=""
+            data-original-title="Copy to clipboard">Copy</button></div>
+        <figure class="highlight">
+          <pre>
+                    {{codeString}}
+                </pre>
+        </figure>
+      </p-tabPanel>
+    </p-tabView>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     <div class="bd-example" style="height: 461px;
     width: 348px;
     margin-left: auto;
     margin-right: auto;">
       <img src="https://i.stack.imgur.com/ZKiMj.jpg" alt="enter image description here" style="width: 100%;">
-      <!-- <div class="alert alert-primary" role="alert">
-        A simple primary alert—check it out!
-      </div>
-      <div class="alert alert-secondary" role="alert">
-        A simple secondary alert—check it out!
-      </div>
-      <div class="alert alert-success" role="alert">
-        A simple success alert—check it out!
-      </div>
-      <div class="alert alert-danger" role="alert">
-        A simple danger alert—check it out!
-      </div>
-      <div class="alert alert-warning" role="alert">
-        A simple warning alert—check it out!
-      </div>
-      <div class="alert alert-info" role="alert">
-        A simple info alert—check it out!
-      </div>
-      <div class="alert alert-light" role="alert">
-        A simple light alert—check it out!
-      </div>
-      <div class="alert alert-dark" role="alert">
-        A simple dark alert—check it out!
-      </div> -->
     </div>
   </div>
 </div>

@@ -13,8 +13,8 @@
     content: attr(data-anchorjs-icon);
 }
 .highlight {
-    padding: 1rem;
-    margin-top: 1rem;
+    padding: 0rem;
+    margin-top: 0rem;
     margin-bottom: 1rem;
     background-color: #f8f9fa;
     -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -55,4 +55,12 @@
         margin-left: 0;
         border-width: .2rem;
     }
+}
+::ng-deep .ui-autocomplete .ui-autocomplete-input {
+    padding: 0.529em !important;
+}
+
+::ng-deep body .ui-tabview .ui-tabview-panels .ui-tabview-panel{
+    overflow-y: scroll;
+    max-height: 420px;
 }

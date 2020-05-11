@@ -43,7 +43,17 @@ app.use('/api/v1', router);
 app.use(function(req, res, next) {
 next();
 });
-app.use(express.static(path.join(__dirname, '../frontend/dist/frontend')))
+app.use(express.static(path.join(__dirname, '../frontend/dist/frontend'), {
+    maxAge: '100',
+    // setHeaders: setCustomCacheControl
+  }))
+
+//   function setCustomCacheControl(res, path) {
+//     if (serveStatic.mime.lookup(path) === 'text/html') {
+//       // Custom Cache-Control for HTML files
+//       res.setHeader('Cache-Control', 'public, max-age=0')
+//     }
+//   }
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/dist/frontend/index.html'));

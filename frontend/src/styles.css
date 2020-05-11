@@ -21,4 +21,25 @@ html {
     font-family: 'Merriweather';
     font-weight: 700;
   }
+
+  body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-left .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-right .ui-tabview-nav li.ui-state-active{
+    background-color: rgb(61,220,132, 1) !important;
+    border: 1px solid rgb(61,220,132, 1) !important;
+  }
+  body .ui-button{
+    background-color: rgb(61,220,132, 1) !important;
+    border: 1px solid rgb(61,220,132, 1) !important;
+  }
   
+  body .ui-inputtext:enabled:focus:not(.ui-state-error) {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2em rgb(61,220,132, 0.1) !important;;
+    border-color: rgb(61,220,132, 1) !important;;
+}
+pre{
+  font-size: 100% !important;
+}
+body .ui-tabview .ui-tabview-panels{
+  padding: 0.5rem !important;
+}

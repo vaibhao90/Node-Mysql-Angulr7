@@ -11,6 +11,7 @@ export class WizardShowComponent implements OnInit {
   filteredPrimitiveOptions: any[] = [];
   primitiveOptions: SelectItem[] = [];
   selectedPrimitive: any = {};
+  selectedPrimitive1: any = {};
   xmlString = `
   <RadioGroup
   android:id="@+id/daily_weekly_button_view"
@@ -58,6 +59,59 @@ export class WizardShowComponent implements OnInit {
       android:textColor="@color/radio_flat_text_selector" />
 
   </RadioGroup>`;
+  codeString = `
+  package com.mkyong.android;
+
+  import android.app.Activity;
+  import android.os.Bundle;
+  import android.view.View;
+  import android.view.View.OnClickListener;
+  import android.widget.Button;
+  import android.widget.RadioButton;
+  import android.widget.RadioGroup;
+  import android.widget.Toast;
+  
+  public class MyAndroidAppActivity extends Activity {
+  
+    private RadioGroup radioSexGroup;
+    private RadioButton radioSexButton;
+    private Button btnDisplay;
+  
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);
+  
+    addListenerOnButton();
+  
+    }
+  
+    public void addListenerOnButton() {
+  
+    radioSexGroup = (RadioGroup) findViewById(R.id.radioSex);
+    btnDisplay = (Button) findViewById(R.id.btnDisplay);
+  
+    btnDisplay.setOnClickListener(new OnClickListener() {
+  
+      @Override
+      public void onClick(View v) {
+  
+              // get selected radio button from radioGroup
+        int selectedId = radioSexGroup.getCheckedRadioButtonId();
+  
+        // find the radiobutton by returned id
+              radioSexButton = (RadioButton) findViewById(selectedId);
+  
+        Toast.makeText(MyAndroidAppActivity.this,
+          radioSexButton.getText(), Toast.LENGTH_SHORT).show();
+  
+      }
+  
+    });
+  
+    }
+  }
+  `;
 
   constructor() { }
 
@@ -70,6 +124,7 @@ export class WizardShowComponent implements OnInit {
       { label: 'Istanbul', value: { id: 4, name: 'Istanbul', code: 'IST' } },
       { label: 'Paris', value: { id: 5, name: 'Paris', code: 'PRS' } }
     ];
+    this.selectedPrimitive1 = this.primitiveOptions[0];
     this.selectedPrimitive = this.primitiveOptions[0];
   }
 
@@ -83,6 +138,10 @@ export class WizardShowComponent implements OnInit {
       }
     }
     this.filteredPrimitiveOptions = filtered;
+  }
+
+  selectPrimitive(){
+    this.selectedPrimitive = this.selectedPrimitive1;
   }
 
 }
