@@ -14,6 +14,8 @@ connection.connect((err) => {
     }
     
     require('../Models/Article').initialize();
+    require('../Models/User').initialize();
+
 });
 
 let getDB = () => {

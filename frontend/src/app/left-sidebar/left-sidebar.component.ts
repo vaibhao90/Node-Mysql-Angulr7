@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-left-sidebar',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeftSidebarComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn: boolean = false;
+  constructor(private loginService: LoginService){
+    let currentUser = this.loginService.currentUserValue;
+    this.isLoggedIn = currentUser && currentUser.token && currentUser.isLoggedIn;
+  }
 
-  ngOnInit() {
+  ngOnInit(){
+    this.loginService.currentUser.subscribe((value)=> {
+      let currentUser = this.loginService.currentUserValue;
+      this.isLoggedIn = currentUser && currentUser.token && currentUser.isLoggedIn;
+    })
   }
 
 }

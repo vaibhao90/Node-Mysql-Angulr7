@@ -1,13 +1,21 @@
 <app-header></app-header>
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid" style="height: 100%;">
+    <div class="row"  *ngIf="isLogggedIn">
         <div class="col-md-3 col-xl-2 bd-sidebar" style="border-right: 1px solid rgba(0,0,0,.1);top: 4rem;">
-            <app-left-sidebar></app-left-sidebar>
+            <app-left-sidebar ></app-left-sidebar>
         </div>
         <div class="col-md-9 col-xl-10 py-md-3 pl-md-5 bd-content" style="overflow-y: scroll;padding-left: 0 !important;">
             <router-outlet></router-outlet>
         </div>
     </div>
+    <div class="row " style="height: 100%;"  *ngIf="!isLogggedIn">
+        <div class="col-md-4" style="margin-left: auto;
+        margin-right: auto;"> 
+            <router-outlet></router-outlet>
+        </div>
+    </div>   
+    <p-toast></p-toast>
+ 
 </div>
 
 <app-footer></app-footer>

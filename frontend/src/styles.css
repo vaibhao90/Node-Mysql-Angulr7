@@ -43,3 +43,6 @@ pre{
 body .ui-tabview .ui-tabview-panels{
   padding: 0.5rem !important;
 }
+.ui-toast.ui-widget.ui-toast-top-right{
+  z-index: 2003 !important;
+}

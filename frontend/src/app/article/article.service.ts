@@ -6,11 +6,12 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Article } from './article';
+import {environment} from '../environment/environment';
 
 @Injectable()
 export class ArticleService {
   //URL for CRUD operations
-  articleUrl = "http://localhost:3000/article";
+  articleUrl = environment.apiUrl+"/article";
   //Create constructor to get Http instance
   constructor(private http: HttpClient) {
   }
@@ -25,10 +26,7 @@ export class ArticleService {
   //Create article
   createArticle(article: Article): Observable<number> {
     let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
-    // let options = new RequestOptions({ headers: cpHeaders });
     return this.http.post<number>(this.articleUrl + "/create-article", article);//, options)
-    // .map(success => success.status)
-    // .catch(this.handleError);
   }
   //Fetch article by id
   getArticleById(articleId: string): Observable<Article> {
